@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://scripts/platform.gd" type="Script" id=2]
@@ -49,6 +49,37 @@ void fragment(){
 
 [sub_resource type="ShaderMaterial" id=17]
 shader = SubResource( 16 )
+
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 512, 10 )
@@ -217,7 +248,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -177, -13 ), Vector2( -171, -116 ) ]
+"values": [ Vector2( -145, -13 ), Vector2( -145, -116 ) ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -402,6 +433,11 @@ material = SubResource( 17 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "open"
+anims/RESET = SubResource( 18 )
+anims/open = SubResource( 19 )
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Floor" type="StaticBody2D" parent="Node2D"]
@@ -430,7 +466,7 @@ position = Vector2( 216, 526 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Node2D/PlatformAbout"]
-self_modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0.113725, 0.235294, 0.176471, 1 )
 position = Vector2( -0.5, -1.90735e-06 )
 scale = Vector2( 1.64583, 0.375 )
 texture = ExtResource( 3 )
@@ -470,7 +506,7 @@ position = Vector2( 369, 484 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Node2D/PlatformAbout2"]
-self_modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0.113725, 0.235294, 0.176471, 1 )
 position = Vector2( -0.5, -1.90735e-06 )
 scale = Vector2( 1.64583, 0.375 )
 texture = ExtResource( 3 )
@@ -489,10 +525,10 @@ text = "Education"
 visible = false
 margin_left = -171.0
 margin_top = -116.0
-margin_right = 176.0
+margin_right = 114.0
 margin_bottom = -102.0
-rect_pivot_offset = Vector2( 176, 7 )
-text = "I studied philosophy at the University of Missouri"
+rect_pivot_offset = Vector2( 145, 7 )
+text = "B.A. Philosophy at the University of Missouri"
 
 [node name="Area2D" type="Area2D" parent="Node2D/PlatformAbout2"]
 monitorable = false
@@ -510,7 +546,7 @@ position = Vector2( 522, 449 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Node2D/PlatformAbout3"]
-self_modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0.113725, 0.235294, 0.176471, 1 )
 position = Vector2( -0.5, -1.90735e-06 )
 scale = Vector2( 1.64583, 0.375 )
 texture = ExtResource( 3 )
@@ -567,7 +603,7 @@ position = Vector2( 838, 546 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Node2D/PlatformAbout4"]
-self_modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0.113725, 0.235294, 0.176471, 1 )
 position = Vector2( -0.5, -1.90735e-06 )
 scale = Vector2( 1.64583, 0.375 )
 texture = ExtResource( 3 )
@@ -587,7 +623,7 @@ visible = false
 margin_left = -171.0
 margin_top = -116.0
 margin_right = 9.0
-margin_bottom = -85.0
+margin_bottom = -68.0
 rect_pivot_offset = Vector2( 88, 16 )
 text = "C++, C#, Python, Golang
 GLSL, Godot Evangelist
@@ -623,9 +659,10 @@ margin_left = 24.0
 margin_top = 20.0
 margin_right = 137.0
 margin_bottom = 68.0
-text = "Move Left:         A
-Move Right:       D
-Jump:         Space"
+text = "Move Left:                 A
+Move Right:               D
+Jump:                  Space
+Click pop up buttons    "
 align = 2
 
 [connection signal="body_entered" from="Node2D/PlatformAbout/Area2D" to="Node2D/PlatformAbout" method="_on_Area2D_body_entered"]
