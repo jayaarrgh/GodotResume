@@ -433,7 +433,7 @@ material = SubResource( 17 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="FadeIn" type="AnimationPlayer" parent="."]
 autoplay = "open"
 anims/RESET = SubResource( 18 )
 anims/open = SubResource( 19 )
@@ -441,23 +441,23 @@ anims/open = SubResource( 19 )
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Floor" type="StaticBody2D" parent="Node2D"]
-position = Vector2( 526, 601 )
+position = Vector2( 521, 604 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Floor"]
 position = Vector2( -13, 0 )
 shape = SubResource( 1 )
 
 [node name="WallLeft" type="StaticBody2D" parent="Node2D"]
-position = Vector2( 526, 540 )
+position = Vector2( 512, 540 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/WallLeft"]
 position = Vector2( -516, -236 )
 shape = SubResource( 5 )
 
-[node name="WallLeft2" type="StaticBody2D" parent="Node2D"]
+[node name="WallRight" type="StaticBody2D" parent="Node2D"]
 position = Vector2( 526, 540 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/WallLeft2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/WallRight"]
 position = Vector2( 504, -236 )
 shape = SubResource( 5 )
 
@@ -501,27 +501,27 @@ shape = SubResource( 4 )
 anims/RESET = SubResource( 8 )
 anims/popup = SubResource( 9 )
 
-[node name="PlatformAbout2" type="StaticBody2D" parent="Node2D"]
+[node name="PlatformEdu" type="StaticBody2D" parent="Node2D"]
 position = Vector2( 369, 484 )
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="Node2D/PlatformAbout2"]
+[node name="Sprite" type="Sprite" parent="Node2D/PlatformEdu"]
 self_modulate = Color( 0.113725, 0.235294, 0.176471, 1 )
 position = Vector2( -0.5, -1.90735e-06 )
 scale = Vector2( 1.64583, 0.375 )
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/PlatformAbout2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/PlatformEdu"]
 shape = SubResource( 2 )
 
-[node name="Label" type="Label" parent="Node2D/PlatformAbout2"]
+[node name="Label" type="Label" parent="Node2D/PlatformEdu"]
 margin_left = -31.0
 margin_top = -7.0
 margin_right = 31.0
 margin_bottom = 7.0
 text = "Education"
 
-[node name="TextPopUp" type="Label" parent="Node2D/PlatformAbout2"]
+[node name="TextPopUp" type="Label" parent="Node2D/PlatformEdu"]
 visible = false
 margin_left = -171.0
 margin_top = -116.0
@@ -530,31 +530,31 @@ margin_bottom = -102.0
 rect_pivot_offset = Vector2( 145, 7 )
 text = "B.A. Philosophy at the University of Missouri"
 
-[node name="Area2D" type="Area2D" parent="Node2D/PlatformAbout2"]
+[node name="Area2D" type="Area2D" parent="Node2D/PlatformEdu"]
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/PlatformAbout2/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/PlatformEdu/Area2D"]
 position = Vector2( 1, -10 )
 shape = SubResource( 4 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/PlatformAbout2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/PlatformEdu"]
 anims/RESET = SubResource( 10 )
 anims/popup = SubResource( 11 )
 
-[node name="PlatformAbout3" type="StaticBody2D" parent="Node2D"]
+[node name="PlatformLinks" type="StaticBody2D" parent="Node2D"]
 position = Vector2( 522, 449 )
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="Node2D/PlatformAbout3"]
+[node name="Sprite" type="Sprite" parent="Node2D/PlatformLinks"]
 self_modulate = Color( 0.113725, 0.235294, 0.176471, 1 )
 position = Vector2( -0.5, -1.90735e-06 )
 scale = Vector2( 1.64583, 0.375 )
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/PlatformAbout3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/PlatformLinks"]
 shape = SubResource( 2 )
 
-[node name="Label" type="Label" parent="Node2D/PlatformAbout3"]
+[node name="Label" type="Label" parent="Node2D/PlatformLinks"]
 margin_left = -18.0
 margin_top = -7.0
 margin_right = 20.0
@@ -562,7 +562,7 @@ margin_bottom = 7.0
 rect_pivot_offset = Vector2( 19, 7 )
 text = "Links"
 
-[node name="TextPopUp" type="Label" parent="Node2D/PlatformAbout3"]
+[node name="TextPopUp" type="Label" parent="Node2D/PlatformLinks"]
 visible = false
 margin_left = -171.0
 margin_top = -116.0
@@ -570,7 +570,7 @@ margin_right = 176.0
 margin_bottom = -102.0
 rect_pivot_offset = Vector2( 176, 7 )
 
-[node name="Github" type="Button" parent="Node2D/PlatformAbout3/TextPopUp"]
+[node name="Github" type="Button" parent="Node2D/PlatformLinks/TextPopUp"]
 margin_left = 147.0
 margin_top = -37.0
 margin_right = 199.0
@@ -578,7 +578,7 @@ margin_bottom = -17.0
 text = "github"
 script = ExtResource( 5 )
 
-[node name="Itch" type="Button" parent="Node2D/PlatformAbout3/TextPopUp"]
+[node name="Itch" type="Button" parent="Node2D/PlatformLinks/TextPopUp"]
 margin_left = 147.0
 margin_top = -11.0
 margin_right = 199.0
@@ -587,38 +587,38 @@ text = "itch"
 script = ExtResource( 5 )
 addr = "https://jayaarrgh.itch.io/"
 
-[node name="Area2D" type="Area2D" parent="Node2D/PlatformAbout3"]
+[node name="Area2D" type="Area2D" parent="Node2D/PlatformLinks"]
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/PlatformAbout3/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/PlatformLinks/Area2D"]
 position = Vector2( 1, -10 )
 shape = SubResource( 4 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/PlatformAbout3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/PlatformLinks"]
 anims/RESET = SubResource( 12 )
 anims/popup = SubResource( 13 )
 
-[node name="PlatformAbout4" type="StaticBody2D" parent="Node2D"]
+[node name="PlatformSkills" type="StaticBody2D" parent="Node2D"]
 position = Vector2( 838, 546 )
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="Node2D/PlatformAbout4"]
+[node name="Sprite" type="Sprite" parent="Node2D/PlatformSkills"]
 self_modulate = Color( 0.113725, 0.235294, 0.176471, 1 )
 position = Vector2( -0.5, -1.90735e-06 )
 scale = Vector2( 1.64583, 0.375 )
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/PlatformAbout4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/PlatformSkills"]
 shape = SubResource( 2 )
 
-[node name="Label" type="Label" parent="Node2D/PlatformAbout4"]
+[node name="Label" type="Label" parent="Node2D/PlatformSkills"]
 margin_left = -16.0
 margin_top = -7.0
 margin_right = 22.0
 margin_bottom = 7.0
 text = "Skills"
 
-[node name="TextPopUp" type="Label" parent="Node2D/PlatformAbout4"]
+[node name="TextPopUp" type="Label" parent="Node2D/PlatformSkills"]
 visible = false
 margin_left = -171.0
 margin_top = -116.0
@@ -630,14 +630,14 @@ GLSL, Godot Evangelist
 18+ years making music"
 valign = 1
 
-[node name="Area2D" type="Area2D" parent="Node2D/PlatformAbout4"]
+[node name="Area2D" type="Area2D" parent="Node2D/PlatformSkills"]
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/PlatformAbout4/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/PlatformSkills/Area2D"]
 position = Vector2( 1, -10 )
 shape = SubResource( 4 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/PlatformAbout4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/PlatformSkills"]
 anims/RESET = SubResource( 14 )
 anims/popup = SubResource( 15 )
 
@@ -654,7 +654,7 @@ shape = SubResource( 6 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Player"]
 anims/jump = SubResource( 7 )
 
-[node name="Label" type="Label" parent="."]
+[node name="HelpLabel" type="Label" parent="."]
 margin_left = 24.0
 margin_top = 20.0
 margin_right = 137.0
@@ -667,11 +667,11 @@ align = 2
 
 [connection signal="body_entered" from="Node2D/PlatformAbout/Area2D" to="Node2D/PlatformAbout" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Node2D/PlatformAbout/Area2D" to="Node2D/PlatformAbout" method="_on_Area2D_body_exited"]
-[connection signal="body_entered" from="Node2D/PlatformAbout2/Area2D" to="Node2D/PlatformAbout2" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Node2D/PlatformAbout2/Area2D" to="Node2D/PlatformAbout2" method="_on_Area2D_body_exited"]
-[connection signal="pressed" from="Node2D/PlatformAbout3/TextPopUp/Github" to="Node2D/PlatformAbout3/TextPopUp/Github" method="_on_Github_pressed"]
-[connection signal="pressed" from="Node2D/PlatformAbout3/TextPopUp/Itch" to="Node2D/PlatformAbout3/TextPopUp/Itch" method="_on_Github_pressed"]
-[connection signal="body_entered" from="Node2D/PlatformAbout3/Area2D" to="Node2D/PlatformAbout3" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Node2D/PlatformAbout3/Area2D" to="Node2D/PlatformAbout3" method="_on_Area2D_body_exited"]
-[connection signal="body_entered" from="Node2D/PlatformAbout4/Area2D" to="Node2D/PlatformAbout4" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Node2D/PlatformAbout4/Area2D" to="Node2D/PlatformAbout4" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Node2D/PlatformEdu/Area2D" to="Node2D/PlatformEdu" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Node2D/PlatformEdu/Area2D" to="Node2D/PlatformEdu" method="_on_Area2D_body_exited"]
+[connection signal="pressed" from="Node2D/PlatformLinks/TextPopUp/Github" to="Node2D/PlatformLinks/TextPopUp/Github" method="_on_Github_pressed"]
+[connection signal="pressed" from="Node2D/PlatformLinks/TextPopUp/Itch" to="Node2D/PlatformLinks/TextPopUp/Itch" method="_on_Github_pressed"]
+[connection signal="body_entered" from="Node2D/PlatformLinks/Area2D" to="Node2D/PlatformLinks" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Node2D/PlatformLinks/Area2D" to="Node2D/PlatformLinks" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Node2D/PlatformSkills/Area2D" to="Node2D/PlatformSkills" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Node2D/PlatformSkills/Area2D" to="Node2D/PlatformSkills" method="_on_Area2D_body_exited"]
